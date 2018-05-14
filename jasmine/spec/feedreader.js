@@ -67,7 +67,7 @@ $(function() {
 
 
     it('hides by default', function() {
-      expect(elBodyClass).toContain('menu-hidden');
+      expect(elBody.hasClass('menu-hidden')).toBe(true);
     });
 
     /* TODO: Write a test that ensures the menu changes
@@ -89,7 +89,8 @@ $(function() {
 
   /* TODO: Write a new test suite named "Initial Entries" */
   describe('Initial Entries', function() {
-    let container = $('.feed');
+
+
     /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
@@ -101,13 +102,14 @@ $(function() {
     beforeEach(function(done) {
       loadFeed(0, function() {
         done();
-      });
+      })
 
     });
 
-    it('should have at least one entry', function() {
+    it('should have at least one entry', function(done) {
 
-      expect(container.html()).not.toBe('');
+      expect($('.feed .entry').length).toBeGreaterThan(0);
+      done();
 
     });
   });
@@ -123,17 +125,16 @@ $(function() {
       loadFeed(0, function() {
         initialFeed = $('.feed').html();
         loadFeed(1, function() {
-
+          addedFeed = $('.feed').html();
           done();
         });
       });
     });
 
 
-    it('has new entry', function() {
-
+    it('has new entry', function(done) {
       expect(initialFeed).not.toBe(addedFeed);
-
+      done();
     });
 
   });
