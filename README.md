@@ -1,6 +1,6 @@
 # Feed reader test
 
-This game is a project from the Udacity Nanodegree Front-End Web Developement.
+This is a project from the Udacity Nanodegree Front-End Web Developement.
 The premisse of the project was to write a number of tests against a pre-existing application.
 
 
